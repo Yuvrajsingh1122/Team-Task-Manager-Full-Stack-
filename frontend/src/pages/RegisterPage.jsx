@@ -32,7 +32,6 @@ export default function RegisterPage() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-brand">
-          <div className="brand-icon">T</div>
           <h2>Create Account</h2>
           <p>Start managing your team's tasks</p>
         </div>
@@ -58,7 +57,7 @@ export default function RegisterPage() {
         </form>
 
         <div className="auth-footer">
-          Already have an account? <Link to="/login">Sign in</Link>
+          Already have an account? <Link to="/login" style={{ fontWeight: 700, color: 'var(--accent)', textDecoration: 'underline' }}>Sign in</Link>
         </div>
       </div>
     </div>

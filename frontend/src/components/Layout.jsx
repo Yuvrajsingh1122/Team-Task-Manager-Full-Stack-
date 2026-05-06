@@ -32,7 +32,6 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="sidebar-brand">
-          <div className="brand-icon">T</div>
           <h1>TaskFlow</h1>
           <button className="hamburger" onClick={() => setSidebarOpen(false)} style={{ marginLeft: 'auto', display: sidebarOpen ? 'block' : 'none' }}>
             <X size={20} />

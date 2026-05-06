@@ -27,7 +27,6 @@ export default function LoginPage() {
     <div className="auth-page">
       <div className="auth-card">
         <div className="auth-brand">
-          <div className="brand-icon">T</div>
           <h2>Welcome back</h2>
           <p>Sign in to your TaskFlow account</p>
         </div>
@@ -65,7 +64,7 @@ export default function LoginPage() {
         </form>
 
         <div className="auth-footer">
-          Don't have an account? <Link to="/register">Create one</Link>
+          Don't have an account? <Link to="/register" style={{ fontWeight: 700, color: 'var(--accent)', textDecoration: 'underline' }}>Create one</Link>
         </div>
       </div>
     </div>
