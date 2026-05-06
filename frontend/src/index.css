@@ -123,7 +123,21 @@ a:hover { text-decoration: underline; }
 /* ===== COMPONENTS ===== */
 .card { background: white; border: 1px solid var(--border-color); padding: 15px; margin-bottom: 20px; }
 .card-header { margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-.btn { padding: 3px 10px; font-size: 11px; border: 1px solid #828282; border-radius: var(--radius); cursor: pointer; background: #f0f0f0; color: #000; }
+.btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 6px; 
+  padding: 4px 12px; 
+  font-size: 11px; 
+  border: 1px solid #828282; 
+  border-radius: var(--radius); 
+  cursor: pointer; 
+  background: #f0f0f0; 
+  color: #000; 
+  font-family: inherit;
+  line-height: 1;
+}
 .btn-primary { background: var(--accent); color: white; border-color: var(--accent); font-weight: 700; }
 
 /* ===== FORMS ===== */
