@@ -1,3 +1,5 @@
+require('dotenv').config();
+const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret_key_123';
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -35,7 +37,7 @@ router.post('/register', (req, res) => {
       'INSERT INTO users (name, email, password) VALUES (?, ?, ?)'
     ).run(name, email, hashedPassword);
 
-    const token = jwt.sign({ id: result.lastInsertRowid }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: result.lastInsertRowid }, JWT_SECRET, {
       expiresIn: '7d',
     });
 
@@ -68,7 +70,7 @@ router.post('/login', (req, res) => {
       return res.status(401).json({ error: 'Invalid email or password.' });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, {
       expiresIn: '7d',
     });
 
