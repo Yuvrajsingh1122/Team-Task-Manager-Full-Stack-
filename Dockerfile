@@ -9,6 +9,10 @@ RUN npm run build
 # Build Stage 2: Backend
 FROM node:20-alpine
 WORKDIR /app
+
+# Install build tools for better-sqlite3 native compilation
+RUN apk add --no-cache python3 make g++
+
 COPY backend/package*.json ./backend/
 RUN cd backend && npm install --production
 
