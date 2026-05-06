@@ -1,0 +1,142 @@
+/* ===== FINAL POLISHED HUMAN-CENTRIC DESIGN (YC Edition) ===== */
+:root {
+  --bg-primary: #f6f6ef; /* YC Beige */
+  --bg-secondary: #ffffff;
+  --bg-header: #ff6600; /* YC Orange */
+  
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #828282;
+  
+  --border-color: #dddddd;
+  --accent: #ff6600;
+  
+  --radius: 2px;
+  --transition: 0.1s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+a { color: #000; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== LAYOUT ===== */
+.app-layout { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 240px; background: #ffffff; border-right: 1px solid var(--border-color);
+  position: fixed; top: 0; bottom: 0; left: 0; z-index: 1000;
+}
+.main-content { flex: 1; margin-left: 240px; padding: 20px 40px; min-width: 0; }
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-left: 0; padding-top: 80px; }
+  .sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999; }
+}
+
+/* ===== BRAND & NAV ===== */
+.sidebar-brand { padding: 10px 15px; background: var(--bg-header); display: flex; align-items: center; gap: 8px; }
+.brand-icon { width: 20px; height: 20px; background: white; border: 1px solid white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; color: var(--accent); }
+.sidebar-brand h1 { font-size: 15px; font-weight: 700; color: #000; }
+.sidebar-nav { padding: 10px 5px; flex: 1; }
+.sidebar-nav a, .sidebar-nav button { padding: 5px 10px; font-size: 13px; color: #000; border: none; background: none; width: 100%; text-align: left; cursor: pointer; display: block; }
+.sidebar-nav a:hover, .sidebar-nav button:hover { background: #eee; text-decoration: underline; }
+.sidebar-nav a.active { font-weight: 700; background: #f0f0f0; }
+.sidebar-user { padding: 10px 15px; border-top: 1px solid var(--border-color); font-size: 11px; color: var(--text-muted); }
+
+/* ===== PROJECTS LIST (The "Hacker News" List Feel) ===== */
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid var(--border-color);
+  margin-top: 10px;
+}
+
+.project-card {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.project-card:last-child { border-bottom: none; }
+.project-card:hover { background: #f6f6ef; }
+
+.project-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-name { 
+  font-size: 14px; 
+  font-weight: 700; 
+  color: #000; 
+}
+
+.project-desc { 
+  font-size: 13px; 
+  color: var(--text-secondary); 
+  margin: 2px 0;
+}
+
+.project-stats { 
+  display: flex; 
+  gap: 15px; 
+  font-size: 11px; 
+  color: #828282; 
+}
+
+.project-stat { display: flex; align-items: center; gap: 4px; }
+.project-role { font-size: 10px; color: #828282; border: 1px solid #ddd; padding: 0 4px; }
+
+/* ===== DASHBOARD & STATS ===== */
+.page-header { background: #ff6600; padding: 8px 15px; margin: -20px -40px 20px; display: flex; align-items: center; justify-content: space-between; }
+@media (max-width: 768px) { .page-header { margin: -80px -15px 20px; } }
+.page-title { font-size: 14px; font-weight: 700; color: #000; }
+.stats-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+.stat-card { font-size: 13px; display: flex; gap: 6px; align-items: center; }
+.stat-label::after { content: ':'; }
+.stat-value { font-weight: 700; color: var(--accent); }
+
+/* ===== KANBAN BOARD ===== */
+.kanban-board { display: flex; gap: 20px; align-items: start; overflow-x: auto; padding-bottom: 20px; }
+.kanban-column { flex: 1; min-width: 300px; background: #fff; border: 1px solid var(--border-color); min-height: 500px; }
+.kanban-column-header { background: #f6f6ef; padding: 6px 10px; border-bottom: 1px solid var(--border-color); font-weight: 700; font-size: 12px; }
+.task-card { padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
+.task-card:hover { background: #f6f6ef; }
+.task-title { font-size: 13px; color: #000; margin-bottom: 4px; }
+.task-meta { font-size: 10px; color: #828282; display: flex; gap: 8px; }
+
+/* ===== COMPONENTS ===== */
+.card { background: white; border: 1px solid var(--border-color); padding: 15px; margin-bottom: 20px; }
+.card-header { margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+.btn { padding: 3px 10px; font-size: 11px; border: 1px solid #828282; border-radius: var(--radius); cursor: pointer; background: #f0f0f0; color: #000; }
+.btn-primary { background: var(--accent); color: white; border-color: var(--accent); font-weight: 700; }
+
+/* ===== FORMS ===== */
+.form-group { margin-bottom: 15px; }
+.form-label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+.form-input { width: 100%; padding: 4px 8px; border: 1px solid #828282; font-size: 13px; }
+
+/* ===== AUTH ===== */
+.auth-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #f6f6ef; }
+.auth-card { background: #fff; padding: 25px; border: 1px solid var(--border-color); width: 100%; max-width: 400px; }
+.auth-brand { border-bottom: 2px solid var(--accent); margin-bottom: 15px; padding-bottom: 10px; }
+
+/* ===== MOBILE ===== */
+.mobile-header { position: fixed; top: 0; left: 0; right: 0; height: 50px; background: var(--bg-header); display: none; align-items: center; padding: 0 15px; z-index: 1100; border-bottom: 1px solid var(--accent); }
+@media (max-width: 768px) { .mobile-header { display: flex; } }
+.hamburger { border: none; background: none; font-size: 20px; cursor: pointer; margin-right: 15px; }
