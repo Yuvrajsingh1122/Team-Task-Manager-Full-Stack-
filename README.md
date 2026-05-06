@@ -1,74 +1,42 @@
-# 🚀 TaskFlow — Team Task Manager
+# TaskFlow — Team Task Manager
 
-TaskFlow is a professional, minimalist full-stack team management application. It allows teams to create projects, manage members, and track tasks via a clean, "Human-Centric" Kanban board interface inspired by the Y Combinator / Hacker News aesthetic.
+A full-stack team task management application built with Node.js, Express, and React.
 
-## ✨ Key Features
+## Features
 
-- **Authentication**: Secure Signup and Login using JWT and bcrypt.
-- **Project Management**: Create projects and manage team members with role-based access (Admin vs. Member).
-- **Task Tracking**: Full Kanban-style task management with drag-and-drop status updates.
-- **Role-Based Access Control**:
-  - **Admins**: Can create tasks, add/remove members, and delete projects.
-  - **Members**: Can view projects and update statuses of tasks assigned to them.
-- **Dashboard**: Real-time overview of total, in-progress, completed, and overdue tasks.
-- **Minimalist UI**: Light-themed, high-contrast design optimized for productivity and clarity.
+- **User Authentication**: Secure signup and login with JWT.
+- **Project Management**: Create projects and manage team members.
+- **Task Management**: Kanban-style board for tracking tasks.
+- **Dashboard**: Overview of project statistics and personal tasks.
+- **Responsive Design**: Works on mobile and desktop.
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- **Frontend**: React 19 + Vite (Vanilla JavaScript)
-- **Backend**: Node.js + Express
-- **Database**: SQLite (via `better-sqlite3`)
-- **Styling**: Modern Vanilla CSS
-- **Orchestration**: `concurrently` (for running frontend/backend together)
-- **Deployment**: Docker + Railway
+- **Frontend**: React, Vite, Axios
+- **Backend**: Node.js, Express, Better-SQLite3
+- **Deployment**: Docker, Railway
 
-## 📂 Project Structure
+## Getting Started
 
-```text
-├── backend/            # Express API & SQLite Database
-├── frontend/           # React Application
-├── Dockerfile          # Production Build Config
-├── package.json        # Root scripts to manage both services
-└── README.md           # You are here
-```
+### Installation
 
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v18 or higher)
-- npm
-
-### Installation & Run
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/Yuvrajsingh1122/Team-Task-Manager-Full-Stack-.git
-   cd Team-Task-Manager-Full-Stack-
-   ```
-
-2. **Install all dependencies**:
+1. **Install dependencies**:
    ```bash
    npm run install-all
    ```
 
-3. **Run the development server**:
+2. **Run the project**:
    ```bash
    npm run dev
    ```
-   - Frontend: [http://localhost:5173](http://localhost:5173)
-   - Backend: [http://localhost:5000](http://localhost:5000)
 
-## 🌐 Deployment to Railway
+## Deployment
 
-This project is optimized for [Railway](https://railway.app/).
-
-1. Connect your GitHub repository to Railway.
-2. Add a **Persistent Volume** mounted to `/app` (required for SQLite to persist).
-3. Set the following environment variables:
-   - `JWT_SECRET`: A secure random string.
-   - `PORT`: `5000`
-4. Railway will automatically detect the `Dockerfile` and deploy the full-stack application.
+To deploy on Railway:
+1. Push to GitHub.
+2. Connect the repository in Railway.
+3. Set `PORT` to `5000` and add a `JWT_SECRET` variable.
+4. Add a Persistent Volume mounted to `/app`.
 
 ---
-
-Built with ❤️ by Yuvraj Singh
+Built by Yuvraj Singh
